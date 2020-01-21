@@ -60,4 +60,10 @@ class AmazonCompetitorTest {
         assertEquals(asList("newshop", "fashionbeats"), topCompetitors);
     }
 
+    @Test
+    public void shouldGet_allCompetitorsInReviews__whentopNCompetitor_is_greater_than_totalCompetitors() {
+        topNCompetitors = 8;
+        List<String> topCompetitors = amazon.topNCompetitors(numCompetitors, topNCompetitors, competitors, numReviews, reviews);
+        assertEquals(asList("newshop", "fashionbeats","mymarket"), topCompetitors);
+    }
 }

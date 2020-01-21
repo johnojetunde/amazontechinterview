@@ -10,10 +10,12 @@ public class AmazonCompetitor {
                 reviewFrequency(competitors, reviews)
         );
 
-        return totalCompetitors.subList(0, topNCompetitors);
+        return topNCompetitors > totalCompetitors.size()
+                ? totalCompetitors
+                : totalCompetitors.subList(0, topNCompetitors);
     }
 
-    public List<String> sortReviews(Map<String, Integer> competitors) {
+    List<String> sortReviews(Map<String, Integer> competitors) {
         Map<String, Integer> sorted = competitors.entrySet().parallelStream()
                 .sorted(Map.Entry.comparingByKey())
                 .sorted((value1, value2) -> Long.compare(value2.getValue(), value1.getValue()))
@@ -23,7 +25,7 @@ public class AmazonCompetitor {
         return new ArrayList<>(sorted.keySet());
     }
 
-    public Map<String, Integer> reviewFrequency(List<String> competitors, List<String> reviews) {
+    Map<String, Integer> reviewFrequency(List<String> competitors, List<String> reviews) {
         Map<String, Integer> reviewFreq = new HashMap<>();
         reviews.stream()
                 .map(review -> competitorsFound(review, competitors))
