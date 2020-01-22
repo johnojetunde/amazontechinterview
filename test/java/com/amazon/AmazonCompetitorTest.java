@@ -34,21 +34,21 @@ class AmazonCompetitorTest {
 
     @Test
     public void shouldGroupByCompetitorsCorrectly() {
-        Map<String, Integer> topCompetitors = amazon.reviewFrequency(competitors, reviews);
-        Map<String, Integer> expected = new HashMap<>();
-        expected.put("newshop", 3);
-        expected.put("fashionbeats", 2);
-        expected.put("mymarket", 1);
+        Map<String, Long> topCompetitors = amazon.reviewFrequency(competitors, reviews);
+        Map<String, Long> expected = new HashMap<>();
+        expected.put("newshop", 3L);
+        expected.put("fashionbeats", 2L);
+        expected.put("mymarket", 1L);
 
         assertEquals(expected, topCompetitors);
     }
 
     @Test
     public void shouldSortGroupedCompetitorsCorrectly() {
-        Map<String, Integer> data = new HashMap<>();
-        data.put("newshop", 3);
-        data.put("fashionbeats", 3);
-        data.put("mymarket", 1);
+        Map<String, Long> data = new HashMap<>();
+        data.put("newshop", 3L);
+        data.put("fashionbeats", 3L);
+        data.put("mymarket", 1L);
 
         List<String> topCompetitors = amazon.sortReviews(data);
         assertEquals(asList("fashionbeats", "newshop", "mymarket"), topCompetitors);
@@ -56,8 +56,10 @@ class AmazonCompetitorTest {
 
     @Test
     public void shouldGet_topNCompetitors() {
+        System.out.println("Start---> "+System.currentTimeMillis());
         List<String> topCompetitors = amazon.topNCompetitors(numCompetitors, topNCompetitors, competitors, numReviews, reviews);
         assertEquals(asList("newshop", "fashionbeats"), topCompetitors);
+        System.out.println("End---> "+System.currentTimeMillis());
     }
 
     @Test
