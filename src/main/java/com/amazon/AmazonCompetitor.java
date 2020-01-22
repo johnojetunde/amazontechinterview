@@ -96,9 +96,4 @@ public class AmazonCompetitor {
         review.set(currentReview);
         return competitor.stream();
     }
-
-    private void updateCompetitorFrequency(String competitor, Map<String, Integer> reviewFreq) {
-        Integer currentCount = reviewFreq.getOrDefault(competitor, 0);
-        reviewFreq.put(competitor, ++currentCount);
-    }
 }
