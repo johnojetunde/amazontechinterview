@@ -13,7 +13,7 @@ public class AmazonCompetitor {
 
     public List<String> topNCompetitors(Integer numCompetitors, Integer topNCompetitors, List<String> competitors, Integer numReviews, List<String> reviews) {
         List<String> totalCompetitors = sortReviews(
-                reviewFrequency(competitors, reviews)
+                reviewFrequencyVersion2WithoutStream(competitors, reviews, numCompetitors)
         );
         //total complexity here us O(4n2) + 2(O(n))
 
@@ -39,7 +39,7 @@ public class AmazonCompetitor {
                 .map(String::toLowerCase) //O(n)
                 .flatMap(s -> assignReviewToAtomicInteger(currentReview, s, competitors)) //O(1)
                 .map(String::toLowerCase)//O(n)
-                .filter(s-> currentReview.get().contains(s)) //O(n)
+                .filter(s -> currentReview.get().contains(s)) //O(n)
                 .collect(groupingBy(identity(), counting())); //O(n)
 
         //taking the O(n) complexity of the stream into consideration, we now have
@@ -47,13 +47,8 @@ public class AmazonCompetitor {
         //the total complexity here is  O(4n2) + O(1)
     }
 
-    public boolean isFound(String review, String competitor) {
-        Map<String, String> reviewParts = extractReviewParts(review); //O(n)
-        return reviewParts.get(competitor) != null; //O(1)
-    }
-
     //this takes lesser time
-    Map<String, Long> reviewFrequencyVersion2WithoutStream(List<String> competitors, List<String> reviews) {
+    Map<String, Long> reviewFrequencyVersion2WithoutStream(List<String> competitors, List<String> reviews, Integer numCompetitors) {
         Map<String, Long> reviewFreq = new HashMap<>();
 
         for (String review : reviews) { // O(n)
@@ -62,7 +57,7 @@ public class AmazonCompetitor {
             competitorsRetrieved = competitors.toArray(competitorsRetrieved); //O(n)
 
             //O(n)
-            for (int i = 0; i < competitorsRetrieved.length; i++) {
+            for (int i = 0; i < numCompetitors; i++) {
                 competitorsRetrieved[i] = competitorsRetrieved[i].toLowerCase();
             }
 
@@ -84,7 +79,7 @@ public class AmazonCompetitor {
     }
 
     private Map<String, String> extractReviewParts(String review) {
-        String[] reviewParts = review.split(" |,|.");
+        String[] reviewParts = review.split(" ");
         Map<String, String> map = new HashMap<>();
         for (String part : reviewParts) {
             map.put(part, part);
