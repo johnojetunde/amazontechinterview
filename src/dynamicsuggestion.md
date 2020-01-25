@@ -26,7 +26,6 @@ Input:<br/>
 numProducts = 5<br/>
 repository = ["mobile","mouse","moneypot","monitor","mousepad"]<br/>
 customerQuery = "mouse"<br/><br/>
-<br/><br/>
 Output:<br/>
 ["mobile","moneypot","monitor"]<br/>
 ["mouse","mousepad"]<br/>
