@@ -39,7 +39,7 @@ public class AmazonCompetitor {
                 .map(String::toLowerCase) //O(n)
                 .flatMap(s -> assignReviewToAtomicInteger(currentReview, s, competitors)) //O(1)
                 .map(String::toLowerCase)//O(n)
-                .filter(s -> isFound(currentReview.get(), s)) //O(n)
+                .filter(s-> currentReview.get().contains(s)) //O(n)
                 .collect(groupingBy(identity(), counting())); //O(n)
 
         //taking the O(n) complexity of the stream into consideration, we now have
@@ -84,7 +84,7 @@ public class AmazonCompetitor {
     }
 
     private Map<String, String> extractReviewParts(String review) {
-        String[] reviewParts = review.split(" ");
+        String[] reviewParts = review.split(" |,|.");
         Map<String, String> map = new HashMap<>();
         for (String part : reviewParts) {
             map.put(part, part);
