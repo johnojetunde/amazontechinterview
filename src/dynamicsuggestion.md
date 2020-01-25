@@ -1,19 +1,15 @@
-**Dynamic Suggestion**
-<br/>
+**Dynamic Suggestion**<br/>
 Amazon is building a "dynamic suggestion" provider when a customer types a minimum of two characters
 into the search field. The system will predict at most three products names from Amazon's product repository
  as the customer types each character keyword he/she  wants to search. As the customer continues to type
- these "dynamic suggestions" will update automatically.
- 
-<br/><br/>
+ these "dynamic suggestions" will update automatically.<br/><br/>
 Write algorithm that will output a maximum of three product suggestions after each character
 is typed by the customer in the search field.
 
 If there are more than three acceptable products, return the product name that is first in alphabetical order.<br/>
 Only return product suggestions after the customer has entered two characters.<br/>
 Product suggestions must start with the characters already typed Both the repository
-and the customerQuery should be compared  in a ***case-insentive way***.
-<br/><br/>
+and the customerQuery should be compared  in a ***case-insentive way***.<br/><br/>
 **Input**<br/>
 The input to the method/function consists three arguments:
 _numProducts_, is an integer representing the number of various products in Amazon's product repository;<br/>
