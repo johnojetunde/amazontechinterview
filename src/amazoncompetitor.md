@@ -1,3 +1,5 @@
+***Amazon Competitor***
+<br/>
 Amazon wants to develop a more efficient way of evaluating their top N competitors for the latest Echo device (Alexa-enabled voice assistant).
 For this analysis, Amazon has developed an automated web crawler that identifies websites where users have written reviews about Amazon's competitors.
 To get a sense of the different competitors out there, Amazon wants to review these websites to see how often a competitor is mentioned i.e a competitor is considered to be a strong competitor if its name occurs in more unique reviews.
