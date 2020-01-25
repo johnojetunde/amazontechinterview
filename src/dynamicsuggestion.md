@@ -1,4 +1,4 @@
-***Dynamic Suggestion***
+**Dynamic Suggestion**
 <br/>
 Amazon is building a "dynamic suggestion" provider when a customer types a minimum of two characters
 into the search field. The system will predict at most three products names from Amazon's product repository
@@ -14,18 +14,18 @@ Only return product suggestions after the customer has entered two characters.<b
 Product suggestions must start with the characters already typed Both the repository
 and the customerQuery should be compared  in a ***case-insentive way***.
 <br/><br/>
-***Input***<br/>
+**Input**<br/>
 The input to the method/function consists three arguments:
 _numProducts_, is an integer representing the number of various products in Amazon's product repository;<br/>
 _repository_, a list of unique strings representing the various products in Amazon's product repository;<br/>
 _customerQuery_, a string representing the full search query of the customer.
 
-***Output***<br/>
+**Output**<br/>
 Return a list of list of strings, where each list represents the product suggestions made by the system
 as the customer types each character of the customerQuery.<br/>
 Assume the customer types characters in order without deleting or removing any characters.
 
-***Example***<br/><br/>
+**Example**<br/><br/>
 Input:<br/>
 numProducts = 5<br/>
 repository = ["mobile","mouse","moneypot","monitor","mousepad"]<br/>
