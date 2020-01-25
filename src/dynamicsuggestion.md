@@ -39,4 +39,4 @@ respectively in each line.<br/>
 For the suggestions that are generated for 'mo', the matches that will be generated are:
 ["mobile","mouse","moneypot","monitor","mousepad"]<br/><br/>
 Alphabetically, they will be reordered to ["mobile","moneypot","monitor","mouse","mousepad"]. <br/><br/>
-Thus the suggestions are ["mobile","moneypot","monitor"],
+Thus the suggestions are ["mobile","moneypot","monitor"].
